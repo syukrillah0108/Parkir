@@ -1,0 +1,479 @@
+String webpageCode = R"***(
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Lemon", serif;
+        /* border: 1px solid red; */
+      }
+
+      :root {
+        --main: #187800;
+        --secondary: #ffffff;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100dvw;
+        height: 100dvh;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100vw;
+        max-height: 20vh;
+        height: 20vh;
+        background-color: var(--main);
+        position: fixed;
+        top: 0;
+        z-index: 999;
+      }
+
+      main {
+        height: 80%;
+      }
+
+      header div {
+        height: 70%;
+        display: flex;
+        padding-left: 5%;
+        align-items: center;
+        color: var(--secondary);
+      }
+
+      header nav {
+        height: 30%;
+      }
+
+      header nav ul {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        padding: 0 5%;
+      }
+
+      header nav ul a li {
+        list-style-type: none;
+      }
+
+      header nav ul a {
+        text-decoration: none;
+        color: var(--secondary);
+        margin-right: 3%;
+      }
+
+      section {
+        display: flex;
+        background-color: var(--secondary);
+        height: 100dvh;
+        padding: 5%;
+        padding-top: 25dvh;
+      }
+
+      #home {
+        flex-direction: column;
+      }
+
+      #home h3 {
+        color: var(--main);
+        font-size: x-large;
+      }
+
+      p {
+        color: var(--main);
+        font-size: smaller;
+      }
+
+      #home div {
+        align-self: flex-end;
+        margin-top: 5dvh;
+        width:100%;
+      }
+
+      #check {
+        display: flex;
+        flex-direction: column;
+        color: var(--main);
+      }
+
+      .lahanParkir {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: auto;
+        height: 500px;
+        width: 300px;
+        background-color: var(--main);
+        border-radius: 5px;
+      }
+
+      .containerParkir {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .parkiran {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--main);
+        color: var(--secondary);
+        height: 120px;
+        width: 80px;
+        margin: 0 10px;
+        border-left: 6px solid white;
+        border-right: 6px solid white;
+      }
+
+      .parkiran h3 {
+        font-size: small;
+        text-align: center;
+      }
+
+      .parkiran svg {
+        transform: scale(0.8);
+        margin-bottom: 100px;
+      }
+
+      .lahanParkir span {
+        color: var(--secondary);
+        font-size: 300%;
+        font-weight: bolder;
+        margin-left: 12%;
+      }
+
+      .containerGate {
+        display: flex;
+        align-items: center;
+        height: 80px;
+      }
+
+      .gerbang {
+        height: 10%;
+        width: 70%;
+        background-color: var(--secondary);
+      }
+
+      .kotak {
+        width: 90%;
+        height: 80%;
+        background-color: orange;
+      }
+
+      #aboutUs {
+        display: block;
+        color: var(--main);
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+    .containerImage {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+      figure {
+        margin: 0 5%;
+        padding: 3px;
+      }
+
+      .containerImage img {
+        border-radius: 10%;
+        width: 120px;
+        border: 3px solid var(--main);
+      }
+
+      figcaption {
+        color: var(--main);
+        text-align: center;
+      }
+
+      .timpa {
+        position: absolute;
+        color: var(--main);
+        margin-bottom: 10px;
+        z-index: 3;
+      }
+
+      @media (min-width: 620px) {
+        #home div {
+          align-self: flex-end;
+          margin-top: 5dvh;
+          right: 5%;
+          width: 30%;
+        }
+      }
+
+      @media (min-width: 440px) {
+        .lahanParkir {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          margin: auto;
+          height: 600px;
+          width: 310px;
+          background-color: var(--main);
+          border-radius: 5px;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>P - Check</h1>
+      </div>
+      <nav>
+        <ul>
+          <a href="#home"><li>Home</li></a>
+          <a href="#check"><li>Check</li></a>
+          <a href="#aboutUs"><li>About Us</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <h3>Welcome to</h3>
+        <h3>P - Check</h3>
+        <p>A parking lot status check for you</p>
+        <div id="bg">
+        </div>
+      </section>
+      <section id="check">
+        <h3>Check</h3>
+        <div class="lahanParkir">
+          <div class="containerParkir">
+            <div class="parkiran">
+              <h3>
+                1<br />
+                Empty
+              </h3>
+            </div>
+            <div class="parkiran">
+              <h3>
+                2<br />
+                Empty
+              </h3>
+            </div>
+            <div class="parkiran">
+              <h3>
+                3<br />
+                Empty
+              </h3>
+            </div>
+          </div>
+          <div>
+            <span>⇅</span>
+            <div class="containerGate">
+              <div class="gerbang"></div>
+              <div class="kotak"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="aboutUs">
+        <h3>About Us</h3>
+        <div class="containerImage">
+          <figure>
+            <img src="http://192.168.1.2/aridwan.jpg" alt="" />
+            <figcaption> <br>Aridwan</figcaption>
+          </figure>
+          <figure>
+            <img src="http://192.168.1.2/aridwan.jpg" alt="" />
+            <figcaption><br>Ade Gunawan</figcaption>
+          </figure>
+          <figure>
+            <img src="http://192.168.1.2/adit.jpg" alt="" />
+            <br>
+            <figcaption>Akbar Aditya <br>Putra</figcaption>
+          </figure>
+          <figure>
+            <img src="http://192.168.1.2/sy.jpg" alt="" />
+            <figcaption><br>Syukrillah</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function getBG() {
+        let sensorDataRequest = new XMLHttpRequest();
+        sensorDataRequest.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            let dataString = this.responseText;
+            document.getElementById("bg").innerHTML = dataString;
+          }
+        };
+        sensorDataRequest.open("GET", "getBG", true);
+        sensorDataRequest.send();
+      }
+      getBG();
+      setInterval(function () {
+        getData();
+      }, 500);
+      
+      const gambar = `
+<svg viewBox="0 0 150 20"
+   version="1.1"
+   width="3.9300001cm"
+   height="7.5799999cm"
+   xmlns="http://www.w3.org/2000/svg">
+  <path
+     style="fill:#ee9b25"
+     d="m 126.07281,8.434683 c -5.868,-4.496 -13.413,-8.20099968 -26.167886,-8.20099968 h -14.14199 -11.527004 -11.527 -14.142 c -12.754,0 -20.299,3.70599968 -26.168,8.20099968 C 13.421931,15.31168 8.2169339,25.34468 8.2169339,35.74768 V 251.7437 l 1.393,8.361 c 1.7040001,10.225 10.1249961,18.64 21.5349961,21.521 l 2.715,0.685 c 9.405,2.374 19.085,3.786 28.848,4.245 l 6.937,0.181 h 4.59 4.59 l 6.937004,-0.181 c 9.76299,-0.46 19.442876,-1.871 28.847876,-4.245 l 2.715,-0.685 c 11.41,-2.88 19.831,-11.295 21.535,-21.521 l 1.393,-8.361 V 35.74868 c 10e-4,-10.404 -5.203,-20.437 -14.18,-27.313997 z"
+     id="path2" />
+  <path
+     style="fill:#faaa2f"
+     d="m 102.34587,7.297683 -7.960946,-1.539 c -2.08099,-0.402 -4.19899,-0.605 -6.32199,-0.605 H 74.23593 60.40893 c -2.124,0 -4.242,0.203 -6.322,0.605 l -7.961,1.539 c -13.585,2.6249995 -23.763,13.322997 -25.083,26.364997 l -4.354,43.008 c -0.095,0.943 -0.143,1.89 -0.143,2.838 V 249.8227 c 0,9.359 4.652,18.174 12.564,23.806 v 0 c 5.471,3.895 12.135,6.001 18.985,6.001 h 26.141 26.14098 c 6.8499,0 13.5139,-2.106 18.9849,-6.001 v 0 c 7.911,-5.632 12.564,-14.447 12.564,-23.806 V 79.50768 c 0,-0.948 -0.048,-1.895 -0.143,-2.838 l -4.354,-43.008 c -1.32,-13.041 -11.498,-23.7389975 -25.08294,-26.363997 z"
+     id="path4" />
+  <path
+     style="fill:#fcc67e"
+     d="m 20.81293,75.81168 c 0,0 10.229,-16.549 53.423,-16.735 37.97688,-0.164 53.42288,16.735 53.42288,16.735 z"
+     id="path6" />
+  <path
+     style="fill:#3f484d"
+     d="m 33.52093,152.1417 v 40.035 l -16.976,18.941 v -58.976 z m -16.975,-5.103 h 16.976 v -40.764 l -16.976,-28.18902 z m 98.40488,5.103 v 40.035 l 16.976,18.941 v -58.976 z m 16.976,-74.05602 -16.976,28.18902 v 40.764 h 16.976 z m -95.06188,118.34402 -16.718,19.197 16.985,5.531 c 12.016,3.913 24.569,5.794 37.105,5.675 12.536004,0.119 25.088994,-1.763 37.10488,-5.675 l 16.985,-5.531 -16.718,-19.197 c -12.096886,3.972 -24.741876,5.882 -37.37088,5.762 -12.631,0.119 -25.276,-1.79 -37.373,-5.762 z m -5.981,-124.61202 -10.071,3.994 16.525,26.31002 c 11.945,-3.918024 24.429,-5.821024 36.897,-5.707024 12.468004,-0.113 24.952994,1.789 36.89688,5.707024 l 16.525,-26.31002 -10.071,-3.994 c -13.85798,-5.496 -28.615876,-8.154 -43.35188,-8.013 -14.734,-0.141 -29.492,2.517 -43.35,8.013 z"
+     id="path8" />
+
+  <path
+     style="fill:#e61e25"
+     d="m 50.76293,279.6287 c -7.776,-0.486 -19.27,-4.425 -19.27,-4.425 l -1.684,6.057 c 0.422,0.124 0.84,0.256 1.271,0.365 l 2.715,0.685 c 5.684,1.435 11.469,2.512 17.311,3.246 z"
+     id="path22" />
+  <path
+     style="fill:#f06a2d"
+     d="m 37.13493,276.9347 c -3.288,-0.926 -5.642,-1.731 -5.642,-1.731 l -1.684,6.057 c 0.422,0.124 0.84,0.256 1.271,0.365 l 2.715,0.685 c 0.678,0.171 1.362,0.321 2.043,0.482 z"
+     id="path24" />
+  <path
+     style="fill:#e61e25"
+     d="m 97.709924,279.6287 c 7.775886,-0.486 19.269886,-4.425 19.269886,-4.425 l 1.683,6.057 c -0.422,0.124 -0.84,0.256 -1.271,0.365 l -2.715,0.685 c -5.684,1.435 -11.46897,2.512 -17.310886,3.246 z"
+     id="path26" />
+  <path
+     style="fill:#f06a2d"
+     d="m 111.33681,276.9347 c 3.288,-0.926 5.642,-1.731 5.642,-1.731 l 1.683,6.057 c -0.422,0.124 -0.84,0.256 -1.271,0.365 l -2.715,0.685 c -0.678,0.171 -1.362,0.321 -2.043,0.482 z"
+     id="path28" />
+  <path
+     style="fill:#ffffff"
+     d="m 100.6949,1.900683 c -0.866976,-0.2240001 -1.726976,0.281 -1.668976,0.98 l 0.115,1.386 c 0.133,1.599 1.319986,3.06 3.142946,3.868 l 15.71794,6.983997 c 1.374,0.611 3.02,-0.192 2.862,-1.396 l -0.499,-3.8169975 c -0.24,-1.8369995 -1.887,-3.4199995 -4.171,-4.0089995 z"
+     id="path30" />
+  <path
+     style="fill:#f06a2d"
+     d="m 114.28381,13.46768 3.717,1.652 c 1.374,0.611 3.02,-0.192 2.862,-1.396 l -0.499,-3.8169975 c -0.057,-0.4379995 -0.2,-0.8609995 -0.407,-1.2599995 0.839,5.299997 -5.671,4.820997 -5.673,4.820997 z"
+     id="path32" />
+  <path
+     style="fill:#ffffff"
+     d="m 47.77793,1.900683 c 0.867,-0.2240001 1.727,0.281 1.669,0.98 l -0.115,1.386 c -0.133,1.599 -1.32,3.06 -3.143,3.868 l -15.718,6.983997 c -1.374,0.611 -3.02,-0.192 -2.862,-1.396 l 0.499,-3.8169975 c 0.24,-1.8369995 1.887,-3.4199995 4.171,-4.0089995 z"
+     id="path34" />
+  <path
+     style="fill:#f06a2d"
+     d="m 34.18793,13.46768 -3.717,1.652 c -1.374,0.611 -3.02,-0.192 -2.862,-1.396 l 0.499,-3.8169975 c 0.057,-0.4379995 0.2,-0.8609995 0.407,-1.2599995 -0.838,5.299997 5.671,4.820997 5.673,4.820997 z"
+     id="path36" />
+  <path
+     style="opacity:0.2;fill:#bfbbb4"
+     d="m 99.239924,4.861683 c 0.3,-0.345 0.872996,-0.528 1.454976,-0.377 l 15.49891,3.997 c 2.284,0.589 3.931,2.170998 4.171,4.008997 l 0.273,2.088 c 0.175,-0.245 0.268,-0.534 0.226,-0.855 l -0.499,-3.8169975 c -0.24,-1.8369995 -1.887,-3.4199995 -4.171,-4.0089995 l -15.49891,-3.997 c -0.866976,-0.2240001 -1.726976,0.281 -1.668976,0.98 l 0.115,1.386 c 0.016,0.201 0.05,0.4 0.099,0.595 z"
+     id="path38" />
+  <path
+     style="opacity:0.2;fill:#bfbbb4"
+     d="m 49.23293,4.861683 c -0.3,-0.345 -0.872,-0.528 -1.455,-0.377 l -15.499,3.997 c -2.284,0.589 -3.931,2.170998 -4.171,4.008997 l -0.273,2.088 c -0.175,-0.245 -0.268,-0.534 -0.226,-0.855 l 0.5,-3.8169975 c 0.24,-1.8369995 1.887,-3.4199995 4.171,-4.0089995 l 15.499,-3.997 c 0.867,-0.2240001 1.727,0.281 1.669,0.98 l -0.115,1.386 c -0.018,0.201 -0.051,0.4 -0.1,0.595 z"
+     id="path40" />
+  <path
+     style="fill:#3f484d"
+     d="M 93.281934,5.154683 H 55.19093 c -0.872,0 -1.579,-0.707 -1.579,-1.579 v 0 c 0,-0.872 0.707,-1.58 1.579,-1.58 h 38.091004 c 0.872,0 1.57999,0.707 1.57999,1.58 v 0 c -0.001,0.871 -0.70799,1.579 -1.57999,1.579 z"
+     id="path42" />
+  <path
+     style="fill:#3f484d"
+     d="m 16.29093,78.08568 -15.0049956,6.064 c -0.69099971,0.279 -1.14299961,0.95 -1.14299961,1.695 v 0 c 0,1.099 0.96199961,1.949 2.05199961,1.815 l 14.0979956,-1.739 z"
+     id="path44" />
+  <path
+     style="fill:#3f484d"
+     d="m 132.18081,78.08568 15.005,6.064 c 0.691,0.279 1.143,0.95 1.143,1.695 v 0 c 0,1.099 -0.962,1.949 -2.052,1.815 l -14.098,-1.739 z"
+     id="path46" />
+  <path
+     style="fill:#4b565b"
+     d="m 69.65693,96.465676 c 1.526,-0.046 3.052,-0.065 4.579,-0.051 12.468004,-0.113 24.952994,1.789 36.89688,5.707024 l 16.525,-26.31002 -10.071,-3.994 c -13.85798,-5.496 -28.615876,-8.154 -43.35188,-8.013 -8.228,-0.079 -16.462,0.717 -24.544,2.39 z"
+     id="path50" />
+
+  <path
+     style="fill:#fcc67e"
+     d="m 124.68081,8.212683 c 0,0 14.274,10.551997 14.774,30.885997 0.5,20.333 0,32.333 0,32.333 l -1.333,-3 c 0,0 0.079,-31.336 -1.833,-39.333 -2.352,-9.834 -11.608,-20.885997 -11.608,-20.885997 z"
+     id="path54" />
+  <path
+     style="fill:#fcc67e"
+     d="m 23.79093,8.212683 c 0,0 -14.2739961,10.551997 -14.7739961,30.885997 -0.5,20.333 0,32.333 0,32.333 l 1.3330011,-3 c 0,0 -0.079,-31.336 1.832998,-39.333 C 14.53593,19.26468 23.79093,8.212683 23.79093,8.212683 Z"
+     id="path56" />
+  <path
+     style="fill:#fcc67e"
+     d="m 88.103934,276.7007 c -3.444,0.16 -6.976004,0.268 -10.582004,0.31 -0.281,0.003 -0.562,0.007 -0.841,0.009 -0.803,0.007 -1.613,0.008 -2.423,0.009 -0.81,-0.001 -1.62,-0.002 -2.423,-0.009 -0.28,-0.002 -0.561,-0.006 -0.841,-0.009 -3.606,-0.043 -7.138,-0.151 -10.582,-0.31 -29.629,-1.513 -39.879,-13.502 -43.407,-22.112 1.291,7.529 5.598,14.377 12.148,19.04 0.088,0.063 0.183,0.116 0.272,0.177 -0.018,-0.002 -0.036,-0.005 -0.054,-0.007 5.422,3.78 11.981,5.831 18.725,5.831 h 0.043 26.099 0.043 26.09898 0.043 c 6.7439,0 13.3019,-2.051 18.7249,-5.831 -0.018,0.002 -0.036,0.005 -0.054,0.007 0.089,-0.062 0.183,-0.115 0.272,-0.177 6.55,-4.663 10.857,-11.51 12.148,-19.04 -3.531,8.61 -13.781,20.599 -43.409876,22.112 z"
+     id="path58" />
+  <path
+     style="fill:#fcc67e"
+     d="m 81.58793,98.079676 c 0,0 27.34188,4.644024 29.54588,7.519024 2.204,2.875 1.454,40.75 1.454,40.75 0,0 -2.125,-34.375 -4.875,-38.375 -2.75,-4 -16.749876,-7.16301 -26.12488,-9.894024 z"
+     id="path64" />
+</svg>
+
+`;
+      function getData() {
+        let sensorDataRequest = new XMLHttpRequest();
+        sensorDataRequest.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            let dataString = this.responseText;
+            let dataArray = dataString.split(",");
+            updateStatusParkiran(dataArray[0], 0);
+            updateStatusParkiran(dataArray[1], 1);
+            updateStatusParkiran(dataArray[2], 2);
+          }
+        };
+        sensorDataRequest.open("GET", "get", true);
+        sensorDataRequest.send();
+      }
+
+      function updateStatusParkiran(isEmpty, index) {
+        const parkiran = document.getElementsByClassName("parkiran");
+        if (isEmpty == 0) {
+          parkiran[index].innerHTML = "";
+          parkiran[index].innerHTML = `<h3>
+                                  ${index + 1}<br />
+                                  Empty
+                                </h3>`;
+        } else {
+          parkiran[index].innerHTML = "";
+          parkiran[index].innerHTML = `${gambar}
+    <h3 class="timpa">${index + 1}</h3>`;
+        }
+      }
+
+      function isEmpty(index) {
+        if (buttons[index].classList.contains("green")) {
+          buttons[index].classList.remove("green");
+          return 1;
+        } else {
+          buttons[index].classList.add("green");
+          return 0;
+        }
+      }
+    </script>
+  </body>
+</html>
+  
+)***";
