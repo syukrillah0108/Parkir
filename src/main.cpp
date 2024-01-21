@@ -4,7 +4,6 @@
 #include <WiFiClient.h>
 #include <WebServer.h>
 #include <web.html>
-#include <landing.svg>
 
 const char *ssid = "Info Parkir";
 const char *password = "infoparkir";
@@ -21,9 +20,10 @@ WebServer server(80);
 
 Servo myservo;
 bool p1,p2,p3,m,k = false;
+int suspend_gerbang = 0;
 
 void BukaGerbang(){
-  myservo.write(95);
+  myservo.write(90);
 }
 
 void TutupGerbang(){
@@ -39,12 +39,36 @@ void SetupServo(){
 
 }
 
+bool cekPenuh(){
+  if((p1 && p2 && p3) == true){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 void RunGerbang(){
   // Gerbang
-  if((digitalRead(pin_masuk) == LOW ) or digitalRead(pin_keluar) == LOW){
-    BukaGerbang();
-  }else if(digitalRead(pin_masuk) and digitalRead(pin_keluar) == HIGH){
-    TutupGerbang();
+  if(cekPenuh() == false){
+    if(
+        (digitalRead(pin_masuk) == LOW ) or
+        digitalRead(pin_keluar) == LOW){
+          BukaGerbang();
+          suspend_gerbang = 0;
+    }else if(
+        digitalRead(pin_masuk) and
+        digitalRead(pin_keluar) == HIGH){
+          if(suspend_gerbang <= 3000){
+            suspend_gerbang += 200;
+      }else if(suspend_gerbang >= 2000){
+        TutupGerbang();
+        suspend_gerbang = 0;
+      }else{
+        suspend_gerbang = 0;
+      }
+    }
+  }else{
+    myservo.write(0);
   }
 }
 
@@ -76,9 +100,6 @@ void handleRoot(){
  server.send(200, "text/html", webpageCode);
 }
 
-void GetBG(){
-  server.send(200, "text/plane", BG);
-}
 void SendData(){
  server.send(200, "text/plane", Data);
 }
@@ -95,7 +116,6 @@ void setup() {
 
   server.on("/", handleRoot);
   server.on("/get", SendData);
-  server.on("/getBG", GetBG);
   server.begin();
 
   pinMode(pin_masuk, INPUT);

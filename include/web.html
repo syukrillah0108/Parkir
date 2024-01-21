@@ -8,14 +8,31 @@ String webpageCode = R"***(
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "Lemon", serif;
-        /* border: 1px solid red; */
-      }
+/* latin-ext */
+@font-face {
+  font-family: 'Lemon';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(http://localhost/HI_EiYEVKqRMq3jIQ5TwQw.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lemon';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(http://localhost/HI_EiYEVKqRMq3jGQ5Q.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lemon", serif;
+  /* border: 1px solid red; */
+}
 
       :root {
         --main: #187800;
@@ -258,7 +275,8 @@ String webpageCode = R"***(
         <h3>Welcome to</h3>
         <h3>P - Check</h3>
         <p>A parking lot status check for you</p>
-        <div id="bg">
+        <div>
+          <img src="http://localhost/Parking.svg" alt="">
         </div>
       </section>
       <section id="check">
@@ -297,20 +315,20 @@ String webpageCode = R"***(
         <h3>About Us</h3>
         <div class="containerImage">
           <figure>
-            <img src="http://192.168.1.2/aridwan.jpg" alt="" />
+            <img src="http://localhost/aridwan.jpg" alt="" />
             <figcaption> <br>Aridwan</figcaption>
           </figure>
           <figure>
-            <img src="http://192.168.1.2/ade.jpg" alt="" />
+            <img src="http://localhost/ade.jpg" alt="" />
             <figcaption><br>Ade Gunawan</figcaption>
           </figure>
           <figure>
-            <img src="http://192.168.1.2/adit.jpg" alt="" />
+            <img src="http://localhost/adit.jpg" alt="" />
             <br>
             <figcaption>Akbar Aditya <br>Putra</figcaption>
           </figure>
           <figure>
-            <img src="http://192.168.1.2/sy.jpg" alt="" />
+            <img src="http://localhost/sy.jpg" alt="" />
             <figcaption><br>Syukrillah</figcaption>
           </figure>
         </div>
@@ -318,18 +336,6 @@ String webpageCode = R"***(
     </main>
 
     <script>
-      function getBG() {
-        let sensorDataRequest = new XMLHttpRequest();
-        sensorDataRequest.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            let dataString = this.responseText;
-            document.getElementById("bg").innerHTML = dataString;
-          }
-        };
-        sensorDataRequest.open("GET", "getBG", true);
-        sensorDataRequest.send();
-      }
-      getBG();
       setInterval(function () {
         getData();
       }, 500);
@@ -476,4 +482,3 @@ String webpageCode = R"***(
   </body>
 </html>
   
-)***";
