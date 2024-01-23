@@ -11,12 +11,11 @@ IPAddress ip(192, 168, 1, 1);
 IPAddress netmask(255, 255, 255, 0);
 WebServer server(80);
 
-#define pin_masuk 1
-#define pin_keluar 2
 #define pin_park1 3
 #define pin_park2 4
 #define pin_park3 5
-#define pin_gerbang 6
+#define pin_masuk 6
+#define pin_keluar 7
 
 Servo myservo;
 bool p1,p2,p3,m,k = false;
