@@ -50,22 +50,19 @@ void RunGerbang(){
   // Gerbang
   if(cekPenuh() == false){
     if(
-        (digitalRead(pin_masuk) == LOW ) or
-        digitalRead(pin_keluar) == LOW){
-          BukaGerbang();
-          suspend_gerbang = 0;
-    }else if(
-        digitalRead(pin_masuk) and
-        digitalRead(pin_keluar) == HIGH){
-          if(suspend_gerbang <= 3000){
-            suspend_gerbang += 200;
-      }else if(suspend_gerbang >= 2000){
-        TutupGerbang();
-        suspend_gerbang = 0;
-      }else{
-        suspend_gerbang = 0;
-      }
-    }
+        ((
+          (digitalRead(pin_masuk) == LOW ) or
+          (digitalRead(pin_keluar) == LOW)
+        ) == true )or
+        ((
+          (digitalRead(pin_masuk) == LOW ) and
+          (digitalRead(pin_keluar) == LOW)
+        ) == true)
+      ){BukaGerbang();}
+      else{
+        delay(1000);
+        myservo.write(0);}
+
   }else{
     myservo.write(0);
   }
